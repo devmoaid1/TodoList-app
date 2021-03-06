@@ -1,9 +1,24 @@
 import React from 'react'
 
-const Todoitems=()=>{
+const Todoitems=(props)=>{
+    const {items}=props; 
+    const Listitems=items.map(item=>{
+        return(
+            <div key={item.id}>
+              <span>{item.name}</span>
+              <span>{item.age}</span>
+              <span>&times;</span>
+            </div>
+        )
+    })
   return(
-      <div>
-          This is Todoitems Compnent
+      <div className="ListItems">
+        <div>
+            <span>Name</span>
+            <span>Age</span>
+            <span>Action</span>
+        </div>
+        {Listitems}
       </div>
   )
 
