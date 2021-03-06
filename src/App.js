@@ -10,12 +10,22 @@ class App extends Component {
       {id:2,name:"Yasser",age:20}
       
   ]
+  } 
+
+  deleteItem=(id)=>{
+    let items=this.state.items; 
+    let i=items.findIndex(item=>item.id===id) 
+    items.splice(i,1) 
+    this.setState({
+      items:items
+    })
+    
   }
   render(){
     return (
       <div className="App"> 
        Todo List App
-       <Todoitems items={this.state.items}/>
+       <Todoitems items={this.state.items} deleteItem={this.deleteItem}/>
       </div>
     );
   }

@@ -1,19 +1,29 @@
 import React from 'react'
 
 const Todoitems=(props)=>{
-    const {items}=props; 
-    const Listitems=items.map(item=>{
+    const {items,deleteItem}=props; 
+    let length=items.length;
+    const Listitems=length?items.map(item=>{
         return(
-            <div key={item.id}>
-              <span>{item.name}</span>
-              <span>{item.age}</span>
-              <span>&times;</span>
-            </div>
+            
+                <div key={item.id}>
+                <span>{item.name}</span>
+                <span>{item.age}</span>
+                <span onClick={()=>deleteItem(item.id)}>&times;</span>
+              </div>
+             
         )
-    })
-  return(
+    }):<div>there are nothing to show</div>
+        
+           
+    
+    
+    
+  return( 
+      
       <div className="ListItems">
-        <div>
+        <div> 
+            
             <span>Name</span>
             <span>Age</span>
             <span>Action</span>
