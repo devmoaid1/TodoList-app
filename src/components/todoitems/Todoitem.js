@@ -7,13 +7,13 @@ const Todoitems=(props)=>{
         return(
             
                 <div key={item.id}>
-                <span>{item.name}</span>
-                <span>{item.age}</span>
-                <span onClick={()=>deleteItem(item.id)}>&times;</span>
+                <span className="name">{item.name}</span>
+                <span className="age">{item.age}</span>
+                <span className="action icon"onClick={()=>deleteItem(item.id)}>&times;</span>
               </div>
              
         )
-    }):<div>there are nothing to show</div>
+    }):<p>there are nothing to show</p>
         
            
     
@@ -24,9 +24,9 @@ const Todoitems=(props)=>{
       <div className="ListItems">
         <div> 
             
-            <span>Name</span>
-            <span>Age</span>
-            <span>Action</span>
+            <span className="name title">Name</span>
+            <span className="age title">Age</span>
+            <span className="action title">Action</span>
         </div>
         {Listitems}
       </div>

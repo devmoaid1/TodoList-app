@@ -1,6 +1,7 @@
 import React ,{Component} from 'react'
 import './App.css';
-import Todoitems from './components/todoitems/Todoitem';
+import Todoitems from './components/todoitems/Todoitem'; 
+import Additem from './components/Additem/Additem'
 class App extends Component { 
 
   state={
@@ -21,11 +22,21 @@ class App extends Component {
     })
     
   }
+  addItem=(item)=>{ 
+    item.id=Math.random()
+    let items=this.state.items;
+    items.push(item)
+    this.setState({
+      items
+    })
+
+  }
   render(){
     return (
-      <div className="App"> 
-       Todo List App
-       <Todoitems items={this.state.items} deleteItem={this.deleteItem}/>
+      <div className="Appcontainer"> 
+       <h1 className="text-center">Todo List App</h1>
+       <Todoitems items={this.state.items} deleteItem={this.deleteItem}/> 
+       <Additem addItem={this.addItem}/>
       </div>
     );
   }
